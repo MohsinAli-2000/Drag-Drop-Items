@@ -3,37 +3,25 @@ let rightDiv = document.getElementsByClassName("right")[0];
 let leftDiv = document.getElementsByClassName("left")[0];
 
 for (list of lists) {
-  list.addEventListener("dragstart", (e) => {
+  list.addEventListener("dragstart click", (e) => {
     let selected = e.target;
-  });
 
-  list.addEventListener("click", (e) => {
-    let selected = e.target;
-  });
+    rightDiv.addEventListener("dragover click", (e) => {
+      e.preventDefault();
+    });
 
-  rightDiv.addEventListener("dragover", (e) => {
-    e.preventDefault();
-  });
+    rightDiv.addEventListener("drop click", (e) => {
+      rightDiv.appendChild(selected);
+      selected = null;
+    });
 
-  rightDiv.addEventListener("click", (e) => {
-    // Your click event handling for 'rightDiv'
-  });
+    leftDiv.addEventListener("dragover click", (e) => {
+      e.preventDefault();
+    });
 
-  rightDiv.addEventListener("drop", (e) => {
-    rightDiv.appendChild(selected);
-    selected = null;
-  });
-
-  leftDiv.addEventListener("dragover", (e) => {
-    e.preventDefault();
-  });
-
-  leftDiv.addEventListener("click", (e) => {
-    // Your click event handling for 'leftDiv'
-  });
-
-  leftDiv.addEventListener("drop", (e) => {
-    leftDiv.appendChild(selected);
-    selected = null;
+    leftDiv.addEventListener("drop click", (e) => {
+      leftDiv.appendChild(selected);
+      selected = null;
+    });
   });
 }
